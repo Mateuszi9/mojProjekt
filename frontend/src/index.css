@@ -17,3 +17,28 @@ header a {
   font-weight: bold;
   text-decoration: none;
 }
+
+main {
+  padding: 1rem;
+}
+
+.announcements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.announcement {
+  border: 1px #404040 solid;
+  margin: 1rem;
+  width: 900px;
+}
+
+.announcement img {
+  width: 100%;
+  max-width: 120px;
+}
+
+.announcement-info {
+  padding: 1rem;
+}
