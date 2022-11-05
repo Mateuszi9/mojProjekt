@@ -1,31 +1,22 @@
-import data from './data';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import HomeScreen from './screens/HomeScreen';
+import AnnouncementScreen from './screens/AnnouncementScreen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a href="/">TwojeKorki</a>
-      </header>
-      <main>
-        <h1>Ogłoszenia Użytkowników</h1>
-        <div className="announcements">
-          {data.announcments.map((announcment) => (
-            <div className="announcement" key={announcment._id}>
-              <a href={`/announcement/${announcment._id}`}>
-                <img src={announcment.image} alt={announcment.title} />
-              </a>
-              <div className="announcement-info">
-                <a href={`/announcement/${announcment._id}`}>
-                  <p>{announcment.title}</p>
-                </a>
-                <p>{announcment.price}</p>
-                <button>Wejdź do Ogłoszenia</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Link to="/">TwojeKorki</Link>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/announcement/:_id" element={<AnnouncementScreen />} />
+            <Route path="/" element={<HomeScreen />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
